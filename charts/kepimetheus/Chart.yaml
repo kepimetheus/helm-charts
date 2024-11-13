@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kepimetheus
-description: A Helm chart for kepimetheus on Kubernetes
+description: The Kepimetheus is an application that helps users generate Prometheus queries using natural language. It leverages AWS Bedrock's to translate user input into valid PromQL syntax, making it easier for users to query their Prometheus metrics without deep knowledge of PromQL.
 type: application
 sources:
   - https://github.com/randomk/kepimetheus
