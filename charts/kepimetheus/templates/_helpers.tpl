@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "..name" -}}
+{{- define "kepimetheus.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "..fullname" -}}
+{{- define "kepimetheus.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "..chart" -}}
+{{- define "kepimetheus.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "..labels" -}}
-helm.sh/chart: {{ include "..chart" . }}
-{{ include "..selectorLabels" . }}
+{{- define "kepimetheus.labels" -}}
+helm.sh/chart: {{ include "kepimetheus.chart" . }}
+{{ include "kepimetheus.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,18 +45,29 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "..selectorLabels" -}}
-app.kubernetes.io/name: {{ include "..name" . }}
+{{- define "kepimetheus.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "kepimetheus.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "..serviceAccountName" -}}
+{{- define "kepimetheus.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "..fullname" .) .Values.serviceAccount.name }}
+{{- default (include "kepimetheus.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
+
+{{/*
+Create the name of the secret to use
+*/}}
+{{- define "kepimetheus.secretName" -}}
+{{- if .Values.provider.secret.create }}
+{{- default (include "kepimetheus.fullname" .) .Values.provider.secret.name }}
+{{- else }}
+{{- default "default" .Values.provider.secret.name }}
 {{- end }}
 {{- end }}
