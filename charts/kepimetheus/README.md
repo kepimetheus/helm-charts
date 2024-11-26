@@ -21,13 +21,13 @@ A Helm chart for kepimetheus on Kubernetes
 Before you can install the chart you will need to add the `kepimetheus` repo to [Helm](https://helm.sh/).
 
 ```shell
-helm repo add kepimetheus https://define-helm-repository
+helm repo add kepimetheus https://kepimetheus.github.io/helm-charts
 ```
 
 After you've installed the repo you can install the chart.
 
 ```shell
-helm upgrade --install kepimetheus kepimetheus/kepimetheus --version 0.0.1
+helm upgrade --install kepimetheus kepimetheus/kepimetheus --version 0.0.3
 ```
 
 ## Providers

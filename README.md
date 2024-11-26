@@ -14,7 +14,7 @@ Please refer to Helm's [documentation](https://helm.sh/docs/) to get started.
 Once Helm is set up properly, add the repository as follows:
 
 ```shell
-helm repo add kepimetheus https://define-helm-repository
+helm repo add kepimetheus https://kepimetheus.github.io/helm-charts
 ```
 
 You can then run `helm search repo kepimetheus` to see the charts.

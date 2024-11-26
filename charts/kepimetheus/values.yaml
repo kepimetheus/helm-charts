@@ -139,7 +139,7 @@ provider:
     # -- Annotations to add to the secret.
     annotations: {}
     # -- Name to add to the secret.
-    name:
+    name: ""
     # -- String data to add to the secret.
     stringData:
       AWS_ACCESS_KEY_ID: 
