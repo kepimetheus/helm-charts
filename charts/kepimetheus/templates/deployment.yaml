@@ -46,7 +46,7 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          {{- if or (.Values.provider.secret.create) (not .Values.provider.secret.name)  }}
+          {{- if or (.Values.provider.secret.create) (.Values.provider.secret.name)  }}
           envFrom:
           - secretRef:
               name: {{ include "kepimetheus.secretName" . }}

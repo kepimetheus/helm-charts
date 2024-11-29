@@ -4,7 +4,7 @@ description: The Kepimetheus is an application that helps users generate Prometh
 type: application
 sources:
   - https://github.com/randomk/kepimetheus
-version: 0.0.3
+version: 0.0.4
 appVersion: "0.0.1"
 kubeVersion: ">=1.20.0-0"
 
