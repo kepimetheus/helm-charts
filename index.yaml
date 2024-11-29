@@ -3,6 +3,34 @@ entries:
   kepimetheus:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2024-11-29T18:52:12.811545158Z"
+    dependencies:
+    - condition: kubePrometheusStack.enabled
+      name: kube-prometheus-stack
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 65.2.*
+    description: The Kepimetheus is an application that helps users generate Prometheus
+      queries using natural language. It leverages AWS Bedrock's to translate user
+      input into valid PromQL syntax, making it easier for users to query their Prometheus
+      metrics without deep knowledge of PromQL.
+    digest: c95133bdffad92a0d8f464008dcac46f4fe16e21b2cab2b41734ca4fcfbc4971
+    kubeVersion: '>=1.20.0-0'
+    maintainers:
+    - email: rodrigomelgar@gmail.com
+      name: Rodrigo Melgar
+    - email: lybrbarbosa@gmail.com
+      name: Felipe Barbosa
+    - email: romulo@scampini.com.br
+      name: Romulo Scampini
+    name: kepimetheus
+    sources:
+    - https://github.com/randomk/kepimetheus
+    type: application
+    urls:
+    - https://github.com/kepimetheus/helm-charts/releases/download/kepimetheus-0.0.4/kepimetheus-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2024-11-29T18:13:23.39825604Z"
     dependencies:
     - condition: kubePrometheusStack.enabled
@@ -85,4 +113,4 @@ entries:
     urls:
     - https://github.com/kepimetheus/helm-charts/releases/download/kepimetheus-0.0.1/kepimetheus-0.0.1.tgz
     version: 0.0.1
-generated: "2024-11-29T18:13:23.398270077Z"
+generated: "2024-11-29T18:52:12.811563703Z"
